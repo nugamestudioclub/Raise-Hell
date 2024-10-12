@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*
  * Class for controlling the player's movement
@@ -12,9 +13,9 @@ public class PlayerController : MonoBehaviour
      * Fields of the player used to manipulate and configure the movement
      */
     [SerializeField]
-    private float jumpPower = 5;
+    private float jumpPower = 10;
     [SerializeField]
-    private float moveSpeed = 25;
+    private float moveSpeed = 5;
     private Rigidbody2D rigidbody2d;
     private bool isGrounded;
     
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("onCollisionEnter2D called...");
         //saving current movement in the y direction
         float yMovement = rigidbody2d.velocity.y;
 
@@ -70,6 +72,11 @@ public class PlayerController : MonoBehaviour
         if (collision.transform.position.y < transform.position.y && yMovement < 0.01f)
         {
             isGrounded = true; //player is grounded
+        }       
+
+        if(collision.collider.tag == "Finish" && isGrounded) {
+            Debug.Log("Finish");
+            SceneManager.LoadScene("Level2");
         }
     }
 
@@ -78,6 +85,7 @@ public class PlayerController : MonoBehaviour
      */
     private void OnCollisionStay2D(Collision2D collision)
     {
+         Debug.Log("onCollisionStay2D called...");
         //saving current movement in the y direction
         float yMovement = rigidbody2d.velocity.y;
 
@@ -93,6 +101,8 @@ public class PlayerController : MonoBehaviour
      */
     private void OnCollisionExit2D(Collision2D collision)
     {
+        Debug.Log("onCollisionExit2D called...");
+
         float yMovement = rigidbody2d.velocity.y;
         if (Mathf.Abs(yMovement) > Mathf.Epsilon)
         {
@@ -105,6 +115,8 @@ public class PlayerController : MonoBehaviour
      */
     private void Jump()
     {
+        Debug.Log("Jump called..");
+
         Vector2 oldVelocity = rigidbody2d.velocity;
         Vector2 newVelocity = new Vector2(oldVelocity.x, jumpPower);
         rigidbody2d.velocity = newVelocity;
