@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596073ec47806f349899c4ee9572c5df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 5
+  jumpPower: 8
   moveSpeed: 8
 --- !u!212 &828746930
 SpriteRenderer:
