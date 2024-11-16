@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 203942121}
   - component: {fileID: 203942120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 597541045}
   - component: {fileID: 597541047}
   - component: {fileID: 597541046}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3372,11 +3372,10 @@ GameObject:
   m_Component:
   - component: {fileID: 828746931}
   - component: {fileID: 828746930}
-  - component: {fileID: 828746929}
   - component: {fileID: 828746928}
-  - component: {fileID: 828746933}
   - component: {fileID: 828746932}
   - component: {fileID: 828746935}
+  - component: {fileID: 828746936}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3429,20 +3428,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &828746929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828746927}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 596073ec47806f349899c4ee9572c5df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpPower: 8
-  moveSpeed: 8
 --- !u!212 &828746930
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3538,20 +3523,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &828746933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828746927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 596073ec47806f349899c4ee9572c5df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpPower: 7
-  moveSpeed: 15
 --- !u!1839735485 &828746935
 Tilemap:
   m_ObjectHideFlags: 0
@@ -3590,6 +3561,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &828746936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828746927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7b925d692d71e4c9d16947c71569e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jump: 5
+  groundlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  walllayer:
+    serializedVersion: 2
+    m_Bits: 64
+  wallSlidingSpeed: 1
+  wallJumpDuration: 0
+  wallJumpForce: {x: 0, y: 0}
+  dashVelocity: 14
+  dashTime: 0.5
+  dashCoolDown: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
