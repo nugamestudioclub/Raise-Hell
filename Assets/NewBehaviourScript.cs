@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             dashAbility();
         }
 
-        Debug.Log(canDash);
+       // Debug.Log(canDash);
     }
 
 
